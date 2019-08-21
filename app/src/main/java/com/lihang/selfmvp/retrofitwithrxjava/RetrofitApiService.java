@@ -1,0 +1,58 @@
+package com.lihang.selfmvp.retrofitwithrxjava;
+
+
+import com.lihang.selfmvp.bean.GankFatherBean;
+import com.lihang.selfmvp.retrofitwithrxjava.uploadutils.FileUploadObserver;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
+import retrofit2.http.Query;
+import retrofit2.http.Streaming;
+import retrofit2.http.Url;
+
+/**
+ * Created by leo
+ * on 2019/8/14.
+ * Retrofit 接口请求配置都在这
+ */
+public interface RetrofitApiService {
+    //Retrofit get请求
+    @GET("xiandu/category/wow")
+    Observable<GankFatherBean> getGank(@Query("en_name") String en_name);
+
+    //Retrofit post请求
+    @POST("add2gank")
+    @FormUrlEncoded
+    Observable<ResponseBody> postAddGank(@FieldMap HashMap<String, String> map);
+
+    //Retrofit 上传文件
+    @POST
+    @Multipart
+    Observable<ResponseBody> uploadPic(@Url String url, @Part("sequence") RequestBody sequence, @Part MultipartBody.Part file);
+
+    //Retrofit下载文件
+    @GET
+    @Streaming //10以上用@streaming。不会造成oom，反正你用就是了
+    Observable<ResponseBody> downloadFile(@Url String url);
+
+    @GET
+    @Streaming
+    Observable<ResponseBody> downloadFile(@Url String url, @Header("RANGE")String range);
+
+}

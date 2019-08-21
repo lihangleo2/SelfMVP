@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_down"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/selector_green"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="正常下载"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/txt_resumdown"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/txt_down"
+            android:layout_toRightOf="@+id/txt_down"
+            android:background="@drawable/selector_blue"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="断点下载"
+            android:textColor="@color/text_color" />
+
+
+        <TextView
+            android:id="@+id/txt_cancledown"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/txt_down"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/txt_resumdown"
+            android:background="@drawable/selector_red"
+            android:enabled="false"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="暂停下载"
+            android:textColor="@color/text_color" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="170dp"
+            android:layout_height="7dp"
+            android:layout_below="@+id/txt_cancledown"
+            android:layout_alignLeft="@+id/txt_down"
+            android:layout_alignRight="@+id/txt_cancledown"
+            android:layout_marginTop="20dp"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar" />
+
+        <TextView
+            android:id="@+id/txt_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="0%"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txt_current"
+            android:layout_alignRight="@+id/txt_cancledown"
+            android:text="x"
+            android:textSize="10dp" />
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
