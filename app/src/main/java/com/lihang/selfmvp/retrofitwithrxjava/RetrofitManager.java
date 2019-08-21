@@ -75,7 +75,7 @@ public class RetrofitManager {
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
-//                .addInterceptor(new HttpLogInterceptor())
+               .addInterceptor(new HttpLogInterceptor())
                 //设置在线和离线缓存
                 .addInterceptor(OfflineCacheInterceptor.getInstance())
                 .addNetworkInterceptor(NetCacheInterceptor.getInstance())
