@@ -51,7 +51,7 @@ public class HttpLogInterceptor implements Interceptor {
             if (!TextUtils.isEmpty(body)) {
                 //如果是图片上传调用URLDecoder会报错，即使tryCache都没用，what!!!
                 String netUrl = request.url().toString();
-                if (netUrl.contains("rest/assessmentRecord/upload")) {
+                if (netUrl.contains(SystemConst.DIFFERT_URL)) {
                     body = "本次请求图片上传或下载，无法打印参数！";
                 } else {
                     body = URLDecoder.decode(body, "utf-8");
@@ -65,30 +65,35 @@ public class HttpLogInterceptor implements Interceptor {
                 .append("\n请求参数: " + body);
 
         Response response = chain.proceed(request);
-        ResponseBody responseBody = response.body();
-        String rBody;
+        String rBody = "";
 
-        BufferedSource source = responseBody.source();
-        source.request(Long.MAX_VALUE);
-        Buffer buffer = source.buffer();
+        String netUrl = request.url().toString();
+        if (!netUrl.contains(SystemConst.QQ_APK)) {
+            ResponseBody responseBody = response.body();
+            BufferedSource source = responseBody.source();
+            source.request(Long.MAX_VALUE);
+            Buffer buffer = source.buffer();
 
-        Charset charset = UTF8;
-        MediaType contentType = responseBody.contentType();
-        if (contentType != null) {
-            try {
-                charset = contentType.charset(UTF8);
-            } catch (UnsupportedCharsetException e) {
-                e.printStackTrace();
+            Charset charset = UTF8;
+            MediaType contentType = responseBody.contentType();
+            if (contentType != null) {
+                try {
+                    charset = contentType.charset(UTF8);
+                } catch (UnsupportedCharsetException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-        rBody = buffer.clone().readString(charset);
-        if (!TextUtils.isEmpty(rBody)) {
-            rBody = decodeUnicode(rBody);
+
+            rBody = buffer.clone().readString(charset);
+            if (!TextUtils.isEmpty(rBody)) {
+                rBody = decodeUnicode(rBody);
+            }
         }
 
         sbf.append("\n收到响应: code ==> " + response.code())
                 .append("\nResponse: " + rBody);
         LogUtils.i("网络请求", sbf.toString());
+
         return response;
     }
 
