@@ -80,16 +80,16 @@ public class UploadFragment extends BaseFragment<UploadPresenter> implements Upl
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
         RequestBody describe = RequestBody.create(MediaType.parse("multipart/form-data"), "1");
 
-//        mPresenter.uploadPic(describe, body);
+       mPresenter.uploadPic(describe, body);
 //        mPresenter.uploadPic(describe,file);
-        ArrayList<File> files = new ArrayList<>();
-        files.add(new File(images.get(0).path));
-        files.add(new File(images.get(0).path));
-        files.add(new File(images.get(0).path));
-        files.add(new File(images.get(0).path));
-        files.add(new File(images.get(0).path));
-        files.add(new File(images.get(0).path));
-        mPresenter.uploadPic(describe, files, "file");
+//         ArrayList<File> files = new ArrayList<>();
+//         files.add(new File(images.get(0).path));
+//         files.add(new File(images.get(0).path));
+//         files.add(new File(images.get(0).path));
+//         files.add(new File(images.get(0).path));
+//         files.add(new File(images.get(0).path));
+//         files.add(new File(images.get(0).path));
+//         mPresenter.uploadPic(describe, files, "file");
     }
 
 
