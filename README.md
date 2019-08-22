@@ -1,5 +1,5 @@
 ## RxJava + Retrofit + MVP
-有可能是有史以来最细节的一次教程。在README上说不清楚，稍后加上博客地址
+有可能是有史以来最细节的一次教程。[博客详细教程地址](https://juejin.im/post/5d5ce44d5188252231108e68)
 
 * 支持所有类型网络请求 get post put 毕竟同出一家，Retrofit最大的优势就是把所有都封装好了，但是最大的缺点也是这个，你无法随意修改
 * 支持上传文件  
@@ -26,4 +26,4 @@ ui中再遇到阴影时,跟Ui小姐姐说,阴影部分别担心，我自己来
 |![](https://github.com/lihangleo2/EasyOk/blob/master/download.gif)|
 
 ### 本项目是基于RxJava + Retrofit + MVP。其中封装了几乎你想要的所有功能。算是VIP版的MVP框架了！！
-### 博客地址正在编辑
+### [博客详细教程地址](https://juejin.im/post/5d5ce44d5188252231108e68)
