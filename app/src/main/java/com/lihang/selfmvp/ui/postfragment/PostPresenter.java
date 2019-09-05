@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Consumer;
@@ -20,6 +22,10 @@ import okhttp3.ResponseBody;
  */
 public class PostPresenter extends BasePresenter<PostContract.View> implements PostContract.Prensenter {
 
+    @Inject
+    public PostPresenter(){
+
+    }
     @Override
     public void getPostData(HashMap<String, String> postParm) {
         if (!isViewAttached()) {

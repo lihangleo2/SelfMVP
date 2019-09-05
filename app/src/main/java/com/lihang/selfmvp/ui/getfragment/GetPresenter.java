@@ -4,6 +4,8 @@ import com.lihang.selfmvp.base.BasePresenter;
 import com.lihang.selfmvp.bean.GankFatherBean;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
+import javax.inject.Inject;
+
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
@@ -12,6 +14,10 @@ import io.reactivex.functions.Consumer;
  * on 2019/8/16.
  */
 public class GetPresenter extends BasePresenter<GetContract.View> implements GetContract.Prensenter {
+    @Inject
+    public GetPresenter() {
+
+    }
 
     //模拟联网， 要不要考虑封装在model里
     @Override

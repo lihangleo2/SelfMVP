@@ -29,5 +29,12 @@
             android:layout_below="@+id/txt_post"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp" />
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:text="玩转Dagger"
+            android:id="@+id/btn_dagger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 </ScrollView>

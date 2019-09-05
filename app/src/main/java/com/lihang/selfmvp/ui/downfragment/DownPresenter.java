@@ -5,6 +5,9 @@ import com.lihang.selfmvp.common.SystemConst;
 import com.lihang.selfmvp.retrofitwithrxjava.downloadutils.FileDownLoadObserver;
 import com.lihang.selfmvp.utils.LogUtils;
 import java.io.File;
+
+import javax.inject.Inject;
+
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -13,6 +16,10 @@ import io.reactivex.disposables.Disposable;
  */
 public class DownPresenter extends BasePresenter<DownContract.View> implements DownContract.Presenter {
 
+    @Inject
+    public DownPresenter(){
+
+    }
 
     Disposable downDisposable;
 

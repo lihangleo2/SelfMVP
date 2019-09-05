@@ -5,8 +5,12 @@ import com.lihang.selfmvp.common.SystemConst;
 import com.lihang.selfmvp.cutomview.LoadingDialog;
 import com.lihang.selfmvp.retrofitwithrxjava.uploadutils.FileUploadObserver;
 import com.lihang.selfmvp.utils.LogUtils;
+
 import java.io.File;
 import java.util.ArrayList;
+
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -17,6 +21,12 @@ import okhttp3.ResponseBody;
  * on 2019/8/20.
  */
 public class UploadPresenter extends BasePresenter<UploadContract.View> implements UploadContract.Presenter {
+
+    @Inject
+    public UploadPresenter() {
+
+    }
+
     @Override
     public void uploadPic(RequestBody sequence, MultipartBody.Part file) {
         if (!isViewAttached()) {
