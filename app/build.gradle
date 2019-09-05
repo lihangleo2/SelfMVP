@@ -43,4 +43,11 @@ dependencies {
     //放着没有及时回收造成RxJava内存泄漏
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
 
+    //引入dagger.android库
+    implementation 'com.google.dagger:dagger-android:2.24'
+    // if you use the support libraries
+    implementation 'com.google.dagger:dagger-android-support:2.24'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.24'
+
 }
